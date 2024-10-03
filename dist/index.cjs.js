@@ -1617,7 +1617,9 @@ var ZoomPanPinch = /** @class */ (function () {
             var isAllowed = isPanningStartAllowed(_this, event);
             if (!isAllowed)
                 return;
-            var isDoubleTap = _this.lastTouch && +new Date() - _this.lastTouch < 200;
+            var isDoubleTap = _this.lastTouch &&
+                +new Date() - _this.lastTouch < 200 &&
+                event.touches.length === 1;
             if (!isDoubleTap) {
                 _this.lastTouch = +new Date();
                 handleCancelAnimation(_this);
